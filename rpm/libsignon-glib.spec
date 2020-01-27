@@ -1,11 +1,12 @@
 Name: libsignon-glib
-Version: 1.7
+Version: 1.15
 Release: 1
 Summary: Single signon authentication library for GLib applications
 License: LGPLv2+
 URL: https://gitlab.com/groups/accounts-sso
 Source0: %{name}-%{version}.tar.gz
 Patch0: 0001-Patch-out-docs-build.patch
+Patch1: 0001-Allow-build-with-glib2-2.62.4.patch
 Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
 BuildRequires: pkgconfig(gio-2.0)
@@ -14,7 +15,6 @@ BuildRequires: pkgconfig(glib-2.0)
 BuildRequires: pkgconfig(gobject-2.0)
 BuildRequires: signon-qt5-devel
 BuildRequires: pkgconfig(check)
-BuildRequires: python
 BuildRequires: libtool
 # For signond
 Requires: signon-qt5
@@ -26,8 +26,6 @@ Requires: signon-qt5
 %defattr(-,root,root,-)
 %license COPYING
 %{_libdir}/libsignon-glib.so.*
-%{_datadir}/vala/vapi/signon.vapi
-%exclude /usr/doc/reference/*
 
 %package devel
 Summary: Development files for libsignon-glib

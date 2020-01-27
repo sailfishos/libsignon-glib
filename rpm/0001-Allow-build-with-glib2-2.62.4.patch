@@ -1,0 +1,26 @@
+From 1cca28c5b1503ffdd94dd498024b216cd4d50ab7 Mon Sep 17 00:00:00 2001
+From: Matti Kosola <matti.kosola@jolla.com>
+Date: Tue, 28 Jan 2020 09:37:12 +0000
+Subject: [PATCH] Allow build with glib2 2.62.4.
+
+Signed-off-by: Matti Kosola <matti.kosola@jolla.com>
+---
+ libsignon-glib/Makefile.am | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/libsignon-glib/Makefile.am b/libsignon-glib/Makefile.am
+index a43b1e5..846ec20 100644
+--- a/libsignon-glib/Makefile.am
++++ b/libsignon-glib/Makefile.am
+@@ -9,7 +9,7 @@ libsignon_glib_la_CPPFLAGS = \
+ libsignon_glib_la_CFLAGS = \
+ 	$(DEPS_CFLAGS) \
+ 	$(COVERAGE_CFLAGS) \
+-	-Wall -Werror -Wno-error=deprecated-declarations
++	-Wall -Wno-error=deprecated-declarations
+ libsignon_glib_la_LIBADD = $(DEPS_LIBS)
+ libsignon_glib_la_LDFLAGS = \
+ 	$(COVERAGE_LDFLAGS) \
+-- 
+1.8.3-rc3
+
