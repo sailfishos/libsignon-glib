@@ -1,0 +1,50 @@
+From 144e445d942b046afb9a5690b585239569502882 Mon Sep 17 00:00:00 2001
+From: Robin Burchell <robin+git@viroteck.net>
+Date: Thu, 11 Jul 2013 11:32:20 +0000
+Subject: [PATCH] Patch out docs build.
+
+Signed-off-by: Matti Kosola <matti.kosola@jolla.com>
+---
+ Makefile.am  | 2 +-
+ configure.ac | 5 -----
+ 2 files changed, 1 insertion(+), 6 deletions(-)
+
+diff --git a/Makefile.am b/Makefile.am
+index 0192017..ef29f35 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -2,7 +2,7 @@ ACLOCAL_AMFLAGS = -I m4
+ DISTCHECK_CONFIGURE_FLAGS = \
+ 	--enable-gtk-doc \
+ 	--enable-introspection=yes
+-SUBDIRS = libsignon-glib docs
++SUBDIRS = libsignon-glib
+ 
+ if ENABLE_PYTHON
+ SUBDIRS += pygobject
+diff --git a/configure.ac b/configure.ac
+index efa5c23..a53994e 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -60,8 +60,6 @@ AC_SUBST(COVERAGE_LDFLAGS)
+ 
+ AM_CONDITIONAL([ENABLE_TESTS], [test "x$have_check" = "xyes"])
+ 
+-GTK_DOC_CHECK([1.14], [--flavour no-tmpl])
+-
+ AC_ARG_ENABLE([cast-checks],
+     [AS_HELP_STRING([--disable-cast-checks], [compile with GLib cast checks disabled])],
+     [], [enable_cast_checks=yes])
+@@ -105,9 +103,6 @@ AC_CONFIG_FILES([
+ 	Makefile
+ 	libsignon-glib/Makefile
+ 	libsignon-glib.pc
+-	docs/Makefile
+-	docs/reference/Makefile
+-	docs/reference/version.xml
+ 	tests/Makefile
+ 	pygobject/Makefile
+ ])
+-- 
+1.8.3-rc3
+
